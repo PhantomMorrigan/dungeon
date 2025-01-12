@@ -1,0 +1,33 @@
+[package]
+name = "dungeon"
+version = "0.1.0"
+authors = ["Morrígan <phantom.morrigan@proton.me"]
+edition = "2024"
+description = "A procedural generation cozy history simulator."
+license = "GPL-3.0-or-later"
+
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
+
+[dependencies]
+avian3d = "0.2.0"
+bevy = "0.15"
+bevy_hanabi = { version = "0.14.0", features = ["serde"] }
+bevy_panorbit_camera = "0.21.2"
+bevy_tween = { version = "0.7.0", features = ["serde"] }
+derive_more = "1.0.0"
+hexx = { version = "0.20", features = ["grid", "bevy_reflect", "serde"] }
+leafwing-input-manager = "0.16.0"
+leafwing_abilities = "0.10.0"
+mevy = "0.1.2"
+serde = { version = "1.0.217", features = ["derive"] }
+strum = { version = "0.26.3", features = ["derive"] }
+
+[lints.clippy]
+too_many_arguments = "allow"
+type_complexity = "allow"
